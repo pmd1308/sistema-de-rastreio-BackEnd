@@ -4,25 +4,23 @@ Aqui há o cruzamento de dados e criação do token de identificação do coleto
 classDiagram
     class Coletor {
         +String responsavel
-        +String setorAtual
         +String origem
+        +String setorAtual
         +String destino
-        +String statusPacote
         +String senha
-        +String criarToken()
-        +void solicitarDados()
-        +void receberDados()
+        +String statusPacote
+        +registrar()
+        +login()
     }
 
     class Servidor {
-        +String dadosSetor
-        +void ouvirSolicitacao()
-        +void enviarDados()
-        +String validarToken(token)
-        +void processarDados(dados)
+        +String endpoint
+        +String token
+        +ouvir()
+        +enviar()
     }
 
-    Coletor --> Servidor : solicita
-    Servidor --> Coletor : envia
-    Coletor --> Coletor : criarToken()
+    Coletor --> Servidor : solicita e recebe
+    Servidor --> Coletor : processa e responde
+
 ```
