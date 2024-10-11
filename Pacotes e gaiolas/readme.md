@@ -3,11 +3,11 @@ Aqui um prototipo basico criado com um GPT que define o modelo de pacote a ser s
 ``` mermaid
 graph TD
     A[Início] --> B{Pacote lido?}
-    B -->|Não| C[Esperar leitura do pacote]
+    B -->|Não| C[Aguardar leitura do pacote]
     B -->|Sim| D{É o primeiro coletor?}
-    D -->|Sim| E[Criar objeto de pacote com Schema]
+    D -->|Sim| E[Criar objeto de pacote com o Schema]
     E --> F[Salvar objeto no banco de dados]
-    F --> G[Definir dados do coletor (responsável, setor, etc.)]
+    F --> G[Definir dados do coletor (responsável, setor atual, etc.)]
     G --> H[Enviar confirmação de criação do objeto]
 
     D -->|Não| I{Pacote em trânsito?}
@@ -22,4 +22,5 @@ graph TD
     H --> P[Fim]
     N --> P
     O --> P
+
 ```
